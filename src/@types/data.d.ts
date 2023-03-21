@@ -8,22 +8,17 @@ export type size = {
   width: number | string;
 };
 
-export type country_node = {
+export type Group = {
   id: number;
-  title: string;
   amount: number;
-  citys: Array<city_node>;
+  children: Item[];
 };
 
-export type city_node = {
+export type Item = {
   id: number;
-  title: string;
+  name: string;
   amount: number;
-  month_data: Array<month_data>;
-};
-
-export type month_data = {
-  id: number;
-  title: string;
-  amount: number;
+  belongGroupId: number;
+  tag: string;
+  description: string;
 };

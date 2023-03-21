@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState, useRef } from "react";
 import { Position, Rnd, RndResizeCallback } from "react-rnd";
 import { coordinates, size } from "src/@types/data";
+import { dataGenerator } from "src/lib/dataGenerator";
 interface IProps {}
 
 interface IState {
@@ -15,6 +16,8 @@ export const FilterArea = () => {
   });
   const isDragging = useRef<boolean>(false);
   const isRect = useRef<boolean>(false);
+
+  let d = dataGenerator(10, 20, 10, 1000);
 
   const handleMouseDown = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent> | MouseEvent
@@ -94,6 +97,8 @@ export const FilterArea = () => {
   };
 
   useEffect(() => {
+    console.log(d);
+
     window.addEventListener("mousedown", initDown);
     window.addEventListener("mousemove", initMove);
     window.addEventListener("mouseup", initUp);
