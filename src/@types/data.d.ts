@@ -19,6 +19,6 @@ export type Item = {
   name: string;
   amount: number;
   belongGroupId: number;
-  tag: string;
+  tag: number;
   description: string;
 };

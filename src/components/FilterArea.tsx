@@ -17,7 +17,7 @@ export const FilterArea = () => {
   const isDragging = useRef<boolean>(false);
   const isRect = useRef<boolean>(false);
 
-  let d = dataGenerator(10, 20, 10, 1000);
+  let d = dataGenerator(2, 20, 10, 1000);
 
   const handleMouseDown = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent> | MouseEvent
@@ -82,8 +82,6 @@ export const FilterArea = () => {
   };
   const initMove = (event: MouseEvent) => {
     if (!initRect.current && first.x !== 0) {
-      console.log("aaa");
-
       setSecond({ x: event.clientX, y: event.clientY });
     }
   };
@@ -127,7 +125,7 @@ export const FilterArea = () => {
     <>
       {initRect.current && second.x !== 0 && (
         <Rnd
-          className="flex rounded-lg border  items-center justify-center bg-black/10 border-dashed border-black "
+          className="flex rounded-lg border  items-center justify-center bg-black/10 border-dashed border-black z-10"
           style={{
             display: "flex",
             top: state.position.y,
